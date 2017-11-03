@@ -1,4 +1,4 @@
-define(['jquery', 'materialize'], function($){
+require(['jquery', 'materialize'], function($, Velocity){
 
 		  	var currentCities=[];
 	// This is a demo API key that can only be used for a short period of time, and will be unavailable soon. You should rather request your API key (free)  from http://battuta.medunes.net/ 	
