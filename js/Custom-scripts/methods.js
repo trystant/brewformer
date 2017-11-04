@@ -10,14 +10,14 @@ require(['jquery', 'materialize'], function($, Velocity){
 	  		console.log(countries);
 	      $('#country').material_select();
 		    //loop through countries..
-		    $.each(countries,function(key,country)
-		    {
+		    // $.each(countries,function(key,country)
+		    // {
 		        $("<option></option>")
 		         				.attr("value", "us")
 		         				.append("United States of America")
 		                     	.appendTo($("#country"));
 		       
-		    }); 
+		    // }); 
 		    // trigger "change" to fire the #state section update process
 		    $("#country").material_select('update');
 		    $("#country").trigger("change");
