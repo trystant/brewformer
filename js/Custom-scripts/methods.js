@@ -13,8 +13,8 @@ require(['jquery', 'materialize'], function($, Velocity){
 		    $.each(countries,function(key,country)
 		    {
 		        $("<option></option>")
-		         				.attr("value",country.code)
-		         				.append(country.name)
+		         				.attr("value", "us")
+		         				.append("United States of America")
 		                     	.appendTo($("#country"));
 		       
 		    }); 
@@ -28,7 +28,7 @@ require(['jquery', 'materialize'], function($, Velocity){
 	    $("#country").on("change",function()
 	  	{
 	  	
-	  		countryCode=$("#country").val();
+	  		countryCode= $("#country").val();
 	  		
 	  		// Populate country select box from battuta API
 		    url="https://battuta.medunes.net/api/region/"
@@ -97,8 +97,8 @@ require(['jquery', 'materialize'], function($, Velocity){
 	      country=currentCity.country;
 	      lat=currentCity.latitude;
 	      lng=currentCity.longitude;
-	      // $("#location").html('<i class="fa fa-map-marker"></i> <strong> '+city+"/"+region+"</strong>("+lat+","+lng+")");
-	      $("#location").html('<span class="random-sentence">This is were the results will show up</span>');
+	      $("#location").html('<i class="fa fa-map-marker"></i> <strong> '+city+"/"+region+"</strong>("+lat+","+lng+")");
+	      $("#selection").html('<span class="random-sentence">You have selected ' + city + ' ' + region + '</span>');
 	    });
 	   //-------------------------------END OF SELECT CASCADING-------------------------//
 
