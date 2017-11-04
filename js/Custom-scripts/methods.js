@@ -69,6 +69,7 @@ require(['jquery', 'materialize'], function($, Velocity){
 	  		
 	  		$.getJSON(url,function(cities)
 	  		{
+	  			console.log(cities);
 	  			currentCities=cities;
 	        	var i=0;
 	        	$("#city option").remove();
