@@ -3,6 +3,7 @@ require(['jquery', 'materialize'], function($, Velocity){
 		  	var currentCities=[];
 	// This is a demo API key that can only be used for a short period of time, and will be unavailable soon. You should rather request your API key (free)  from http://battuta.medunes.net/ 	
 	var BATTUTA_KEY= "bb03b960b7d675d47e5d78b1795da95c";
+	var BREW_KEY= "bb5091fd74b7944bb27ac0fd535524ef";
 	  	// Populate country select box from battuta API
 		url="https://battuta.medunes.net/api/country/all/?key="+ BATTUTA_KEY +"&callback=?";
 	  	$.getJSON(url,function(countries)
@@ -91,6 +92,10 @@ require(['jquery', 'materialize'], function($, Velocity){
 	  	});	
 	  	$("#city").on("change",function()
 	  	{
+	      url = "http://api.brewerydb.com/v2/?breweries&key="+BREW_KEY+"&callback=?";
+	      $.getJSON(url,function(breweries){
+	      	console.log(breweries);
+	      })
 	      currentIndex=$("#city").val();
 	      currentCity=currentCities[currentIndex];
 	      city=currentCity.city;
