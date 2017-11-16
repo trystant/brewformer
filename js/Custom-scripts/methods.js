@@ -1,8 +1,8 @@
-require(['jquery', 'materialize', 'search', 'auto', 'hammer'], function($, Velocity){
+require(['jquery', 'materialize', 'search', 'auto', 'hammer'], function($, Velocity,search,auto){
 	$('.icon-block').append("<button id='submit' onclick='search()''>Search</button>");
 	
 
-	var autocomplete = $('#el').materialize_autocomplete({
+	var autocomplete = $('#Region').materialize_autocomplete({
     limit: 20,
     multiple: {
         enable: true,
@@ -11,7 +11,7 @@ require(['jquery', 'materialize', 'search', 'auto', 'hammer'], function($, Veloc
         onExceed: function (maxSize, item) { /* ... */ }
     },
     appender: {
-        el: '#someEl'
+        el: '#Region'
     },
     getData: function (value, callback) {
         // ...
