@@ -1,3 +1,8 @@
+#header{
+	position: relative;
+	right: 55px;
+}
+
 #submit{
 	float: left;
 }
@@ -8,4 +13,28 @@
 
 #list-item{
 	display: inline;
+}
+
+#country-field{
+	display: none;
+}
+
+#fields{
+	position: relative;
+	left: 100px;
+}
+
+#region-field{
+	position: relative;
+	margin-left: 60px
+}
+
+#city-field{
+	position: relative;
+	margin-left: 80px
+}
+
+#item-container{
+	display: inline-block;
+	margin-bottom: 20px;
 }
