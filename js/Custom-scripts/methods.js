@@ -1,5 +1,5 @@
 require(['jquery', 'materialize', 'search', 'auto', 'hammer'], function($, Velocity,search,auto){
-	$('.section').append("<button id='submit' onclick='search()''>Search</button>");
+	$('.section-input').append("<button id='submit' onclick='search()''>Search</button>");
 	var autocomplete = $('#Region').materialize_autocomplete({
     limit: 20,
     multiple: {
