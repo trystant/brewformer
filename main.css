@@ -34,7 +34,7 @@
 	margin-left: 80px
 }
 
-#item-container{
+.item-container{
 	display: inline-block;
 	position: relative;
 	margin-bottom: 20px;
