@@ -19,7 +19,8 @@ function getBreweries(contents){
     var list = JSON.parse(contents);
     for(var i = 0; i < list.data.length; i++){
         var brewery = list.data[i].brewery.name;
-        var item = "<div class='col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span></div>"
+        //insert brewery id into template
+        var item = "<div class='col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span><ul class='beer-list'></ul></div>";
         $('#brewery-list').append(item).fadeIn(999);
         // console.log(brewery);
         getBeers(list, i);
@@ -31,7 +32,17 @@ function getBeers(list, i){
     console.log(brewery_id);
     var url = "http://api.brewerydb.com/v2/brewery/"+brewery_id+"/beers?key="+BREW_KEY;
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    fetch(proxyurl + url).then(response=> response.text());
+    fetch(proxyurl + url).then(response=> response.text()).then(contents=> displayBeers(contents, brewery_id));
+}
+
+function displayBeers(contents, brewery_id){
+    var info = JSON.parse(contents);
+    for(var j = 0; j < info.data.length; j++){
+        var brew = info.data[j].name;
+        var brewTemplate = "<li class='beer-list-item'>"+brew+"</li>";
+        //append beer item to element with corresponding brewery id.
+        $('.beer-list').append(brewTemplate);
+    }
 }
 
 function errorMessage(error){
