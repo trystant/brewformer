@@ -19,29 +19,34 @@ function getBreweries(contents){
     var list = JSON.parse(contents);
     for(var i = 0; i < list.data.length; i++){
         var brewery = list.data[i].brewery.name;
+        var breweryClass = brewery.replace(/ |'|&|\.|\s|\+/g, '');
         //insert brewery id into template
-        var item = "<div class='col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span><ul class='beer-list'></ul></div>";
+        var item = "<div class='col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span><ul class='"+breweryClass+"-list'></ul></div>";
         $('#brewery-list').append(item).fadeIn(999);
         // console.log(brewery);
-        getBeers(list, i);
+        getBeers(list, i, breweryClass);
     }
 }
 
-function getBeers(list, i){
+function getBeers(list, i, breweryClass){
     var brewery_id = list.data[i].brewery.id;
     console.log(brewery_id);
     var url = "http://api.brewerydb.com/v2/brewery/"+brewery_id+"/beers?key="+BREW_KEY;
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    fetch(proxyurl + url).then(response=> response.text()).then(contents=> displayBeers(contents, brewery_id));
+    fetch(proxyurl + url).then(response=> response.text()).then(contents=> displayBeers(contents, brewery_id, breweryClass));
 }
 
-function displayBeers(contents, brewery_id){
+//let value = "String with spaces"; console.log(value.replace(/ /g,'+'));
+
+function displayBeers(contents, brewery_id, breweryClass){
     var info = JSON.parse(contents);
     for(var j = 0; j < info.data.length; j++){
         var brew = info.data[j].name;
-        var brewTemplate = "<li class='beer-list-item'>"+brew+"</li>";
+        var searchBeer = brew.replace(/ /g, '+');
+        var searchUrlTemplate = "https://www.google.com/search?q="+searchBeer;
+        var brewTemplate = "<li class='beer-list-item'><a href="+searchUrlTemplate+">"+brew+"</a></li>";
         //append beer item to element with corresponding brewery id.
-        $('.beer-list').append(brewTemplate);
+        $('.'+breweryClass+'-list').append(brewTemplate);
     }
 }
 
