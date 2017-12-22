@@ -21,10 +21,11 @@ function getBreweries(contents){
         var brewery = list.data[i].brewery.name;
         var breweryClass = brewery.replace(/ |'|&|\.|\s|\+/g, '');
         //insert brewery id into template
-        var item = "<div class='col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span><ul class='"+breweryClass+"-list'></ul></div>";
+        var item = "<div class='card yellow lighten-3 col-3 item-container'><span class='list-item' aria-live='assertive'>"+brewery+"</span><hr class='separator'><ul class='"+breweryClass+"-list'></ul></div>";
         $('#brewery-list').append(item).fadeIn(999);
         // console.log(brewery);
         getBeers(list, i, breweryClass);
+        removeBreweries();
     }
 }
 
@@ -48,6 +49,10 @@ function displayBeers(contents, brewery_id, breweryClass){
         //append beer item to element with corresponding brewery id.
         $('.'+breweryClass+'-list').append(brewTemplate);
     }
+}
+
+function removeBreweries(){
+    
 }
 
 function errorMessage(error){
