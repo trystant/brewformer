@@ -1,4 +1,4 @@
-const BREW_KEY= "bb5091fd74b7944bb27ac0fd535524ef";
+const BREW_KEY= "e36933548da991f62ec0d7ec93fad90c";
 function search(){
     $('#brewery-list').empty();
     $('#error-container').empty();
@@ -25,7 +25,6 @@ function getBreweries(contents){
         $('#brewery-list').append(item).fadeIn(999);
         // console.log(brewery);
         getBeers(list, i, breweryClass);
-        removeBreweries();
     }
 }
 
@@ -41,18 +40,24 @@ function getBeers(list, i, breweryClass){
 
 function displayBeers(contents, brewery_id, breweryClass){
     var info = JSON.parse(contents);
+    if(info.data === undefined){
+        $('.'+breweryClass+'-list').append('<li class="noBeers">There were no beers found in the databased that are brewed by this brewery.</li>');
+    }else{
     for(var j = 0; j < info.data.length; j++){
         var brew = info.data[j].name;
+        var beerDescription = info.data[j].description;
         var searchBeer = brew.replace(/ /g, '+');
         var searchUrlTemplate = "https://www.google.com/search?q="+searchBeer;
-        var brewTemplate = "<li class='beer-list-item'><a href="+searchUrlTemplate+">"+brew+"</a></li>";
+        var brewTemplate = "<li class='beer-list-item'><a href="+searchUrlTemplate+" data-toggle='tooltip' title='"+beerDescription+"''>"+brew+"</a></li>";
         //append beer item to element with corresponding brewery id.
-        $('.'+breweryClass+'-list').append(brewTemplate);
+
+            $('.'+breweryClass+'-list').append(brewTemplate);
+        }
     }
 }
 
 function removeBreweries(){
-    
+
 }
 
 function errorMessage(error){
