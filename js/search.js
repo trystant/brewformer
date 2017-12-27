@@ -46,18 +46,18 @@ function displayBeers(contents, brewery_id, breweryClass){
     for(var j = 0; j < info.data.length; j++){
         var brew = info.data[j].name;
         var beerDescription = info.data[j].description;
+        if(beerDescription === undefined){
+            beerDescription = "Sorry there is no description for this beer yet."
+        }
+        var beerDescriptionEdit = beerDescription.replace("'", "&#39")
         var searchBeer = brew.replace(/ /g, '+');
         var searchUrlTemplate = "https://www.google.com/search?q="+searchBeer;
-        var brewTemplate = "<li class='beer-list-item'><a href="+searchUrlTemplate+" data-toggle='tooltip' title='"+beerDescription+"''>"+brew+"</a></li>";
+        var brewTemplate = "<li class='beer-list-item'><a href="+searchUrlTemplate+" data-toggle='tooltip' title='"+beerDescriptionEdit+"''>"+brew+"</a></li>";
         //append beer item to element with corresponding brewery id.
 
             $('.'+breweryClass+'-list').append(brewTemplate);
         }
     }
-}
-
-function removeBreweries(){
-
 }
 
 function errorMessage(error){
