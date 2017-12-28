@@ -54,6 +54,14 @@
 	left: 75px;
 }
 
+.item-container:hover{
+	box-shadow: 2px 2px;
+}
+
+.beer-list-item:hover{
+	text-decoration: underline;
+}
+
 .footer-img{
 	height: 100px;
 	width: 350px;
