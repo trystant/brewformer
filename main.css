@@ -68,35 +68,7 @@
 	float: right;
 }
 
-/*.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
- 
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-	left: 105%;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}*/
-
-.tool-tip {
-  display: inline-block;
-}
-
-.tool-tip [disabled] {
-  pointer-events: none;
+.material-tooltip > .backdrop {
+	background-color: red;
 }
