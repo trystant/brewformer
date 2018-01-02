@@ -22,3 +22,9 @@ requirejs.config({
 require(['jquery', 'velocity'], function ($, Velocity){
 	$("body").velocity({opacity: 0.5});
 });
+
+// require(['jquery'], function ($){
+// 	$(document).ready(function(){
+//         $('[data-toggle="tooltip"]').tooltip();
+//     })
+// });
