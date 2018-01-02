@@ -68,7 +68,7 @@
 	float: right;
 }
 
-.tooltip {
+/*.tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
@@ -91,4 +91,12 @@
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}*/
+
+.tool-tip {
+  display: inline-block;
+}
+
+.tool-tip [disabled] {
+  pointer-events: none;
 }
