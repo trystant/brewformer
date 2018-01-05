@@ -62,9 +62,17 @@
 	text-decoration: underline;
 }
 
+footer.page-footer{
+	background-color: #777dc49c;
+}
+
+.page-footer .footer-copyright{
+	background-color: rgba(95, 147, 212, 0.72);
+}
+
 .footer-img{
-	height: 100px;
-	width: 350px;
+	height: 75px;
+	width: 300px;
 	float: right;
 }
 
